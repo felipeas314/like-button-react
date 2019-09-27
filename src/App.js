@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+import { Container, Image } from './style';
+import { TiHeart } from 'react-icons/ti';
+
+export default function App() {
+  const [like, setLike] = useState(0);
+
+  function handleClick() {
+    setLike(like + 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container>
+        <Image>
+          <img
+            src="https://img.elo7.com.br/product/zoom/2074773/pacote-com-41-matrizes-de-bordados-pokemon-pikachu-pokebola-barudam.jpg"
+            alt="Pokemon"
+            height="500"
+            width="500"
+          />
+        </Image>
+        <TiHeart size="100" onClick={handleClick}></TiHeart>
+        {like}
+      </Container>
+    </>
   );
 }
-
-export default App;
